@@ -1,9 +1,9 @@
 {
-    "name": "fooman/printorderpdf-m2",
+    "name": "fooman/printorderpdf-implementation-m2",
     "description": "Print the order as a pdf from the admin",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "2.2.3",
+    "version": "103.0.0",
     "autoload": {
         "psr-4": {
             "Fooman\\PrintOrderPdf\\": ""
