@@ -40,6 +40,11 @@ class Pdforders extends \Magento\Backend\App\Action
     protected $date;
 
     /**
+     * @var \Magento\Ui\Component\MassAction\Filter
+     */
+    protected $filter;
+
+    /**
      * Pdforders constructor.
      *
      * @param \Magento\Backend\App\Action\Context                        $context
@@ -76,7 +81,7 @@ class Pdforders extends \Magento\Backend\App\Action
     /**
      * Print selected orders
      *
-     * @return \Magento\Backend\Model\View\Result\Redirect
+     * @return \Magento\Backend\Model\View\Result\Redirect|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
      */
     public function execute()
     {
