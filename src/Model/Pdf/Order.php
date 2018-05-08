@@ -19,6 +19,8 @@ class Order extends Invoice
      * @param  \Magento\Sales\Model\Order[] $orders
      *
      * @return \Zend_Pdf
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Zend_Pdf_Exception
      */
     public function getPdf($orders = [])
     {

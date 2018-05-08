@@ -57,5 +57,4 @@ class PaymentInfoBlockPlugin
         }
         return $this->resolver->getTemplateFileName($template ?: $subject->getTemplate(), $params);
     }
-
 }

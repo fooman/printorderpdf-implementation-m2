@@ -40,6 +40,11 @@ class Pdforders extends \Magento\Backend\App\Action
     protected $date;
 
     /**
+     * @var \Magento\Ui\Component\MassAction\Filter
+     */
+    protected $filter;
+
+    /**
      * Pdforders constructor.
      *
      * @param \Magento\Backend\App\Action\Context                        $context
@@ -76,7 +81,7 @@ class Pdforders extends \Magento\Backend\App\Action
     /**
      * Print selected orders
      *
-     * @return \Magento\Backend\Model\View\Result\Redirect
+     * @return \Magento\Backend\Model\View\Result\Redirect|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
      */
     public function execute()
     {
@@ -84,9 +89,8 @@ class Pdforders extends \Magento\Backend\App\Action
             $collection = $this->filter->getCollection($this->collectionFactory->create());
             $pdf = $this->orderPdfFactory->create()->getPdf($collection);
             $date = $this->date->date('Y-m-d_H-i-s');
-
             return $this->fileFactory->create(
-                'orders' . $date . '.pdf',
+                __('orders') . $date . '.pdf',
                 $pdf->render(),
                 DirectoryList::VAR_DIR,
                 'application/pdf'

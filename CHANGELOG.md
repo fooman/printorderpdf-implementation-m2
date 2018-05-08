@@ -1,5 +1,11 @@
 # Change Log
 
+## [Unreleased]
+### Added
+- Ability to translate more terms (thanks @gediminaskv)
+### Fixed
+- Minor code style issue
+
 ## [103.0.0] 2018-05-07
 ### Changed
 - Package name renamed to fooman/printorderpdf-implementation-m2, installation should be via metapackage fooman/printorderpdf-m2
