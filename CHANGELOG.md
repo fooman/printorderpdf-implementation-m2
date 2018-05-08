@@ -1,6 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- Ability to translate more terms (thanks @gediminaskv)
+### Fixed
+- Minor code style issue
 
 ## [103.0.0] 2018-05-07
 ### Changed
