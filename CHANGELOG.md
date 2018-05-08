@@ -5,7 +5,7 @@
 - Package name renamed to fooman/printorderpdf-implementation-m2, installation should be via metapackage fooman/printorderpdf-m2
 - Increased version number by 100 to differentiate from metapackage
 ### Fixed
-- Change setTemplate workaound, use area emulation instead
+- Change setTemplate workaround, use area emulation instead
 Constructor change in Plugin\PaymentInfoBlockPlugin, removes copied template files
 
 ## [2.2.2] 2017-09-11
