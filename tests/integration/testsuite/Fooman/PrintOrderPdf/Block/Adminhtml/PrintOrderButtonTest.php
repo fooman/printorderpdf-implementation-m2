@@ -22,7 +22,7 @@ class PrintOrderButtonTest extends \Magento\TestFramework\TestCase\AbstractBacke
     }
 
     /**
-     * @magentoDataFixture Magento/Sales/_files/order.php
+     * @magentoDataFixture Fooman/PrintOrderPdf/Block/Adminhtml/_files/order.php
      */
     public function testPrintOrderButton()
     {
