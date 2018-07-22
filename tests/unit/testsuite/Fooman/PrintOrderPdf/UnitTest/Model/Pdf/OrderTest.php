@@ -1,5 +1,6 @@
 <?php
-namespace Fooman\PrintOrderPdf\Test\Unit\Model\Pdf;
+
+namespace Fooman\PrintOrderPdf\UnitTest\Model\Pdf;
 
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 
@@ -7,7 +8,7 @@ use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
  * Test for
  * @see Fooman\PrintOrderPdf\Model\Pdf\Order
  */
-class OrderTest extends \PHPUnit\Framework\TestCase
+class OrderTest extends \Fooman\PhpunitBridge\BaseUnitTestCase
 {
     /**
      * @var \Fooman\PrintOrderPdf\Model\Pdf\Order
@@ -21,7 +22,6 @@ class OrderTest extends \PHPUnit\Framework\TestCase
         $pdfConfigMock = $this->getPdfConfigMock();
         $directoryMock = $this->getDirectoryMock();
         $filesystemMock = $this->getFileSystemMock($directoryMock);
-
 
         $storeMock = $this->getMockBuilder(\Magento\Store\Model\Store::class)
             ->disableOriginalConstructor()
@@ -53,7 +53,6 @@ class OrderTest extends \PHPUnit\Framework\TestCase
         $pdfItemsFactoryMock->expects($this->any())->method('get')->will(
             $this->returnValue($objectManager->getObject(\Magento\Sales\Model\Order\Pdf\Items\Invoice\DefaultInvoice::class))
         );
-
 
         $orderConstructorArgs = [
             'paymentData'       => $paymentDataMock,

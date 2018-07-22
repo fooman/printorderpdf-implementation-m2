@@ -3,8 +3,10 @@
 
     <testsuites>
         <testsuite name="Unit Tests">
-            <directory>./tests/unit/Test/</directory>
+            <directory>./tests/unit/testsuite/</directory>
         </testsuite>
     </testsuites>
-
+    <php>
+        <const name="TESTS_TEMP_DIR" value="var"/>
+    </php>
 </phpunit>
