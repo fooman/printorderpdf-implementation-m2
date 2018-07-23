@@ -9,10 +9,12 @@
  */
 namespace Fooman\PrintOrderPdf\Model;
 
+use Fooman\PhpunitBridge\BaseUnitTestCase;
+
 /**
  * @magentoAppArea adminhtml
  */
-class OrderTest extends \PHPUnit\Framework\TestCase
+class OrderTest extends BaseUnitTestCase
 {
 
     protected $objectManager;

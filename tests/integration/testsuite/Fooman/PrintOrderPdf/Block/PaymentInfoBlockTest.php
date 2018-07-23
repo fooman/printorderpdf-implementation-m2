@@ -10,7 +10,9 @@
 
 namespace Fooman\PrintOrderPdf\Block;
 
-class PaymentInfoBlockTest extends \PHPUnit\Framework\TestCase
+use Fooman\PhpunitBridge\BaseUnitTestCase;
+
+class PaymentInfoBlockTest extends BaseUnitTestCase
 {
 
     private $objectManager;
