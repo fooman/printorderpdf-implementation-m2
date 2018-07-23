@@ -7,46 +7,42 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace Fooman\PrintOrderPdf\Model;
 
-namespace Fooman\PrintOrderPdf\Block;
+use Fooman\PhpunitBridge\BaseUnitTestCase;
 
-class PaymentInfoBlockTest extends \PHPUnit\Framework\TestCase
+/**
+ * @magentoAppArea adminhtml
+ */
+class OrderTest extends BaseUnitTestCase
 {
 
-    private $objectManager;
-
-    private $helper;
+    protected $objectManager;
 
     public function setUp()
     {
         $this->objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
-        $this->pdf = $this->objectManager->create(
+        $this->pdf =  $this->objectManager->create(
             \Fooman\PrintOrderPdf\Model\Pdf\Order::class
         );
-
-        $this->helper = $this->objectManager->get(\Magento\Payment\Helper\Data::class);
     }
 
     /**
      * @magentoDataFixture Magento/Sales/_files/order.php
-     * @magentoAppArea     adminhtml
      */
-    public function testToPdfAdmin()
+    public function testGetPdf()
     {
         $order = $this->prepareOrder();
-        $paymentInfo = $this->helper->getInfoBlock($order->getPayment())->setIsSecureMode(true);
-        $this->assertContains('Check / Money order', $paymentInfo->toPdf());
+        $this->assertInstanceOf('Zend_Pdf', $this->pdf->getPdf([$order]));
     }
 
     /**
-     * @magentoDataFixture Magento/Sales/_files/order.php
-     * @magentoAppArea     frontend
+     * @magentoDataFixture Magento/Bundle/_files/order_item_with_bundle_and_options.php
      */
-    public function testToPdfFrontend()
+    public function testGetPdfWithBundleItem()
     {
         $order = $this->prepareOrder();
-        $paymentInfo = $this->helper->getInfoBlock($order->getPayment())->setIsSecureMode(true);
-        $this->assertContains('Check / Money order', $paymentInfo->toPdf());
+        $this->assertInstanceOf('Zend_Pdf', $this->pdf->getPdf([$order]));
     }
 
     /**

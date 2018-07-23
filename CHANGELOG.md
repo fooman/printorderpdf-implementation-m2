@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 ### Changed
-- Reorganise unit tests
+- Reorganise unit and integration tests
 
 ## [103.0.2] 2018-07-19
 ### Fixed
