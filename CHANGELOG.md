@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Changed
+- Reorganise unit tests
+
 ## [103.0.2] 2018-07-19
 ### Fixed
 - Adjust integration test for 2.2.5
