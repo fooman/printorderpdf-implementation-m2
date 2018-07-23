@@ -17,6 +17,10 @@ class PaymentInfoBlockTest extends \PHPUnit\Framework\TestCase
 
     private $helper;
 
+    private $pdf;
+
+    private $moduleManager;
+
     public function setUp()
     {
         $this->objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
@@ -24,6 +28,7 @@ class PaymentInfoBlockTest extends \PHPUnit\Framework\TestCase
             \Fooman\PrintOrderPdf\Model\Pdf\Order::class
         );
 
+        $this->moduleManager = $this->objectManager->create(\Magento\Framework\Module\Manager::class);
         $this->helper = $this->objectManager->get(\Magento\Payment\Helper\Data::class);
     }
 
@@ -35,6 +40,9 @@ class PaymentInfoBlockTest extends \PHPUnit\Framework\TestCase
     {
         $order = $this->prepareOrder();
         $paymentInfo = $this->helper->getInfoBlock($order->getPayment())->setIsSecureMode(true);
+        if ($this->moduleManager->isEnabled('Fooman_PdfCustomiser')) {
+            $paymentInfo->setFoomanThemePath('frontend/Magento/blank');
+        }
         $this->assertContains('Check / Money order', $paymentInfo->toPdf());
     }
 
@@ -46,6 +54,9 @@ class PaymentInfoBlockTest extends \PHPUnit\Framework\TestCase
     {
         $order = $this->prepareOrder();
         $paymentInfo = $this->helper->getInfoBlock($order->getPayment())->setIsSecureMode(true);
+        if ($this->moduleManager->isEnabled('Fooman_PdfCustomiser')) {
+            $paymentInfo->setFoomanThemePath('frontend/Magento/blank');
+        }
         $this->assertContains('Check / Money order', $paymentInfo->toPdf());
     }
 
