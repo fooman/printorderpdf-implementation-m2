@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [103.0.3] 2018-07-23
 ### Changed
 - Reorganise unit and integration tests
 
