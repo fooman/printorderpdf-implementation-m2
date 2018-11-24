@@ -6,6 +6,7 @@ use Magento\Mtf\Util\Protocol\CurlInterface;
 use Magento\Mtf\Util\Protocol\CurlTransport;
 use Magento\Mtf\Util\Protocol\CurlTransport\BackendDecorator;
 use Magento\Sales\Test\Fixture\OrderInjectable;
+use Fooman\PhpunitBridge\CompatAssert;
 
 class AssertResponseIsMultiplePdfs extends AbstractAssertPdf
 {
@@ -37,13 +38,13 @@ class AssertResponseIsMultiplePdfs extends AbstractAssertPdf
         $contentType = $this->getHeaderValue($header, 'Content-Type');
         $curl->close();
 
-        \PHPUnit\Framework\Assert::assertEquals(
+        CompatAssert::assertEquals(
             'application/pdf',
             $contentType,
             'Response is not a pdf.'
         );
 
-        \PHPUnit\Framework\Assert::assertEquals(
+        CompatAssert::assertEquals(
             $pdfMarkerExpected,
             $pdfMarkerActual,
             'Pdf is not the expected version'

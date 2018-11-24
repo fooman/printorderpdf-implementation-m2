@@ -5,6 +5,7 @@ namespace Fooman\PrintOrderPdf\Test\Constraint;
 use Magento\Mtf\Util\Protocol\CurlInterface;
 use Magento\Mtf\Util\Protocol\CurlTransport;
 use Magento\Mtf\Util\Protocol\CurlTransport\BackendDecorator;
+use Fooman\PhpunitBridge\CompatAssert;
 
 class AssertResponseIsPdf extends AbstractAssertPdf
 {
@@ -34,13 +35,13 @@ class AssertResponseIsPdf extends AbstractAssertPdf
         $contentType = $this->getHeaderValue($header, 'Content-Type');
         $curl->close();
 
-        \PHPUnit\Framework\Assert::assertEquals(
+        CompatAssert::assertEquals(
             'application/pdf',
             $contentType,
             'Response is not a pdf.'
         );
 
-        \PHPUnit\Framework\Assert::assertEquals(
+        CompatAssert::assertEquals(
             $pdfMarkerExpected,
             $pdfMarkerActual,
             'Pdf is not the expected version'
