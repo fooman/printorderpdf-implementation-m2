@@ -34,13 +34,13 @@ class AssertResponseIsPdf extends AbstractAssertPdf
         $contentType = $this->getHeaderValue($header, 'Content-Type');
         $curl->close();
 
-        \PHPUnit_Framework_Assert::assertEquals(
+        \PHPUnit\Framework\Assert::assertEquals(
             'application/pdf',
             $contentType,
             'Response is not a pdf.'
         );
 
-        \PHPUnit_Framework_Assert::assertEquals(
+        \PHPUnit\Framework\Assert::assertEquals(
             $pdfMarkerExpected,
             $pdfMarkerActual,
             'Pdf is not the expected version'
