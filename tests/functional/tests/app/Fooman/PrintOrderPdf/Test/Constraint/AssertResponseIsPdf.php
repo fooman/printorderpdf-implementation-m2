@@ -5,7 +5,7 @@ namespace Fooman\PrintOrderPdf\Test\Constraint;
 use Magento\Mtf\Util\Protocol\CurlInterface;
 use Magento\Mtf\Util\Protocol\CurlTransport;
 use Magento\Mtf\Util\Protocol\CurlTransport\BackendDecorator;
-use Fooman\PhpunitBridge\CompatAssert;
+use Fooman\PhpunitAssertBridge\CompatAssert;
 
 class AssertResponseIsPdf extends AbstractAssertPdf
 {

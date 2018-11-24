@@ -6,7 +6,7 @@ use Magento\Mtf\Util\Protocol\CurlInterface;
 use Magento\Mtf\Util\Protocol\CurlTransport;
 use Magento\Mtf\Util\Protocol\CurlTransport\BackendDecorator;
 use Magento\Sales\Test\Fixture\OrderInjectable;
-use Fooman\PhpunitBridge\CompatAssert;
+use Fooman\PhpunitAssertBridge\CompatAssert;
 
 class AssertResponseIsMultiplePdfs extends AbstractAssertPdf
 {
