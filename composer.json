@@ -3,7 +3,7 @@
     "description": "Print the order as a pdf from the admin",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "103.1.0",
+    "version": "103.1.1",
     "autoload": {
         "psr-4": {
             "Fooman\\PrintOrderPdf\\": "src/"
@@ -23,10 +23,10 @@
         "fooman/magento2-phpunit-bridge": "0.7.*"
     },
     "repositories": [
-      {
-        "type": "composer",
-        "url": "https://repo-magento-mirror.fooman.co.nz/"
-      }
+        {
+            "type": "composer",
+            "url": "https://repo-magento-mirror.fooman.co.nz/"
+        }
     ],
     "minimum-stability": "dev",
     "prefer-stable": true
