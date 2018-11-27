@@ -30,10 +30,6 @@ class BundleItems extends \Magento\Bundle\Model\Sales\Order\Pdf\Items\Invoice
             }
         }
 
-        if (isset($itemsArray[$orderItem->getId()])) {
-            return $itemsArray[$orderItem->getId()];
-        } else {
-            return null;
-        }
+        return isset($itemsArray[$orderItem->getId()]) ? $itemsArray[$orderItem->getId()] : null;
     }
 }
