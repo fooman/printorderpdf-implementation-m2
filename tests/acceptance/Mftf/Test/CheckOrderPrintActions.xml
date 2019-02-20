@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../../../../../dev/tests/acceptance/vendor/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/Test/etc/testSchema.xsd">
+    <test name="CheckOrderPrintActions">
+        <annotations>
+            <features value="Print Order PDF"/>
+            <stories value="Check the order print actions"/>
+            <title value="Check the order print actions"/>
+            <description value="Check the order print actions"/>
+
+            <severity value="CRITICAL"/>
+            <group value="Fooman_All"/>
+            <group value="Fooman_PrintOrderPdf"/>
+        </annotations>
+        <before>
+            <actionGroup ref="LoginAsAdmin" stepKey="loginAsAdmin"/>
+        </before>
+        <amOnPage url="{{AdminOrdersPage.url}}" stepKey="onOrdersPage"/>
+        <waitForPageLoad stepKey="waitForIndexPageLoad"/>
+        <see selector="{{PrintOrderPdfGeneralSettingsSection.printOrderAction}}" userInput="Print Orders" stepKey="seePrintOrderAction"/>
+    </test>
+</tests>
