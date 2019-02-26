@@ -3,6 +3,6 @@
         xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
     <section name="AdminOrdersGridSection">
         <element name="bulkActionDropdown" type="button" selector="div.admin__data-grid-header-row.row div.action-select-wrap button.action-select"/>
-        <element name="bulkActionOption" type="text" selector="#container > div > div.admin__data-grid-header > div.admin__data-grid-header-row.row.row-gutter > div.col-xs-2 > div > div > ul > li > span:contains('Print Orders')"/>
+        <element name="bulkActionOption" type="text" selector="#container > div > div.admin__data-grid-header > div.admin__data-grid-header-row.row.row-gutter > div.col-xs-2 > div > div > ul > li > span:contains('Cancel')"/>
     </section>
 </sections>
