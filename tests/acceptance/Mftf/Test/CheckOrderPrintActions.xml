@@ -18,6 +18,6 @@
         <amOnPage url="{{AdminOrdersPage.url}}" stepKey="onOrdersPage"/>
         <waitForPageLoad stepKey="waitForIndexPageLoad"/>
         <click selector="{{AdminOrdersGridSection.bulkActionDropdown}}" stepKey="clickDropdown"/>
-        <click selector="{{AdminOrdersGridSection.bulkActionOption}}" stepKey="clickMassAction"/>
+        <click selector="{{AdminOrdersGridSection.bulkActionOption('Print Orders')}}" stepKey="clickMassAction"/>
     </test>
 </tests>

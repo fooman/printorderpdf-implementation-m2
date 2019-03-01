@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<sections xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="urn:magento:mftf:Page/etc/SectionObject.xsd">
-    <section name="PrintOrderPdfGeneralSettingsSection">
-        <element name="printOrderAction" type="text" selector="#container > div > div.admin__data-grid-header > div.admin__data-grid-header-row.row.row-gutter > div.col-xs-2 > div > div > ul > li:nth-child(1) > span" />
-    </section>
-</sections>
