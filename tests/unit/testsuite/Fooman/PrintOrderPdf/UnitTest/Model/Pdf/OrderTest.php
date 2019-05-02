@@ -168,11 +168,12 @@ class OrderTest extends \Fooman\PhpunitBridge\BaseUnitTestCase
         $directoryMock->expects($this->any())->method('getAbsolutePath')->will(
             $this->returnCallback(
                 function ($argument) {
-                    if (strpos($argument, 'lib/internal/LinLibertineFont/') === 0) {
+                    if (strpos($argument, 'lib/internal/LinLibertineFont/') === 0
+                        || strpos($argument, 'lib/internal/GnuFreeFont/') === 0) {
                         $argument = str_replace('lib/internal/', '', $argument);
                         return __DIR__ . '/_files/' . $argument;
                     }
-                    return BP . '/' . $argument;
+                    return dirname(__DIR__, 8) . '/' . $argument;
                 }
             )
         );

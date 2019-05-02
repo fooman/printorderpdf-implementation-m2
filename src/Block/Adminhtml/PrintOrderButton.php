@@ -1,4 +1,6 @@
 <?php
+namespace Fooman\PrintOrderPdf\Block\Adminhtml;
+
 /**
  * @author     Kristof Ringleff
  * @package    Fooman_PrintOrderPdf
@@ -7,8 +9,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Fooman\PrintOrderPdf\Block\Adminhtml;
-
 class PrintOrderButton extends \Magento\Backend\Block\Widget\Container
 {
     /**
@@ -32,6 +32,7 @@ class PrintOrderButton extends \Magento\Backend\Block\Widget\Container
         parent::__construct($context, $data);
     }
 
+    // phpcs:ignore PSR2.Methods.MethodDeclaration -- Magento 2 core use
     protected function _construct()
     {
         $this->addButton(

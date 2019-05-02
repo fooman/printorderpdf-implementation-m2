@@ -1,4 +1,9 @@
 <?php
+namespace Fooman\PrintOrderPdf\Controller\Adminhtml\Order;
+
+use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\Controller\ResultFactory;
+
 /**
  * @author     Kristof Ringleff
  * @package    Fooman_PrintOrderPdf
@@ -7,13 +12,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Fooman\PrintOrderPdf\Controller\Adminhtml\Order;
-
-use Magento\Framework\App\Filesystem\DirectoryList;
-use Magento\Framework\Controller\ResultFactory;
-
 class Pdforders extends \Magento\Backend\App\Action
 {
+    const ADMIN_RESOURCE = 'Magento_Sales::sales_order';
+
     /**
      * @var string
      */
@@ -68,14 +70,6 @@ class Pdforders extends \Magento\Backend\App\Action
         $this->orderPdfFactory = $orderPdfFactory;
         $this->date = $date;
         parent::__construct($context);
-    }
-
-    /**
-     * @return bool
-     */
-    protected function _isAllowed()
-    {
-        return $this->_authorization->isAllowed('Magento_Sales::sales_order');
     }
 
     /**

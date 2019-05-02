@@ -1,4 +1,8 @@
 <?php
+namespace Fooman\PrintOrderPdf\Model\Pdf;
+
+use Magento\Sales\Model\Order\Pdf\Invoice;
+
 /**
  * @author     Kristof Ringleff
  * @package    Fooman_PrintOrderPdf
@@ -7,10 +11,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Fooman\PrintOrderPdf\Model\Pdf;
-
-use Magento\Sales\Model\Order\Pdf\Invoice;
-
 class Order extends Invoice
 {
     /**

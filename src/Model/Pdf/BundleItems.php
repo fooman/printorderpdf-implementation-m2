@@ -1,4 +1,6 @@
 <?php
+namespace Fooman\PrintOrderPdf\Model\Pdf;
+
 /**
  * @author     Kristof Ringleff
  * @package    Fooman_PrintOrderPdf
@@ -7,14 +9,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Fooman\PrintOrderPdf\Model\Pdf;
-
 class BundleItems extends \Magento\Bundle\Model\Sales\Order\Pdf\Items\Invoice
 {
     public function getChildren($orderItem)
     {
 
-        $itemsArray = array();
+        $itemsArray = [];
         $items = $orderItem->getOrder()->getAllItems();
 
         if ($items) {
