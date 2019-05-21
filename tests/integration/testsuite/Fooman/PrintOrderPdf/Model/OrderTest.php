@@ -17,7 +17,9 @@ use Fooman\PhpunitBridge\BaseUnitTestCase;
 class OrderTest extends BaseUnitTestCase
 {
 
-    protected $objectManager;
+    private $objectManager;
+
+    private $pdf;
 
     public function setUp()
     {
