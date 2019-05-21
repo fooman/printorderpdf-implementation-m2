@@ -21,7 +21,7 @@ class PrintAction extends \Magento\Backend\App\Action
     protected $fileFactory;
 
     /**
-     * @var \Magento\Backend\Model\View\Result\RedirectFactory
+     * @var \Magento\Framework\Controller\Result\RedirectFactory
      */
     protected $resultRedirectFactory;
 
@@ -70,7 +70,7 @@ class PrintAction extends \Magento\Backend\App\Action
         $orderId = $this->getRequest()->getParam('order_id');
         if ($orderId) {
             $order = $this->orderRepository->get($orderId);
-            if ($order) {
+            if ($order->getEntityId()) {
                 $pdf = $this->orderPdfFactory->create()->getPdf([$order]);
                 $date = $this->date->date('Y-m-d_H-i-s');
                 return $this->fileFactory->create(
