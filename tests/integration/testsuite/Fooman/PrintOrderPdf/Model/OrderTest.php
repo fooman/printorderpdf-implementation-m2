@@ -56,7 +56,11 @@ class OrderTest extends BaseUnitTestCase
             \Magento\Sales\Model\Order::class
         )->loadByIncrementId('100000001');
 
+        foreach ($order->getAllItems() as $orderItem) {
+            if (!$orderItem->getSku()) {
+                $orderItem->setSku('Test_sku');
+            }
+        }
         return $order;
     }
-
 }
