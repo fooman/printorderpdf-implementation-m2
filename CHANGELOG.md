@@ -3,6 +3,8 @@
 ## [Unreleased]
 ### Added
 - PHPStan to development tools
+### Fixed
+- Order item sku is required in tests on 2.3.1
 
 ## [103.1.2] - 2019-05-02
 ### Changed
