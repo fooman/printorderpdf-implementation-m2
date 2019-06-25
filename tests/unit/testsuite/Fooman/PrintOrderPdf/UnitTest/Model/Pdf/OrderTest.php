@@ -93,22 +93,32 @@ class OrderTest extends \Fooman\PhpunitBridge\BaseUnitTestCase
 
         $orderItemMock = $this->createPartialMock(
             \Magento\Sales\Model\Order\Item::class,
-            ['getProductType']
+            ['getProductType', 'getSku', 'getName']
         );
         $orderItemMock->expects($this->any())->method('getProductType')->will(
             $this->returnValue(
                 'default'
             )
         );
+        $orderItemMock->expects($this->any())->method('getSku')->will(
+            $this->returnValue('Item SKU')
+        );
+        $orderItemMock->expects($this->any())->method('getName')->will(
+            $this->returnValue('Item Name')
+        );
 
         $orderParentItemMock = $this->createPartialMock(
             \Magento\Sales\Model\Order\Item::class,
-            ['getParentItem']
+            ['getParentItem', 'getSku', 'getName']
         );
         $orderParentItemMock->expects($this->any())->method('getParentItem')->will(
-            $this->returnValue(
-                true
-            )
+            $this->returnValue(true)
+        );
+        $orderParentItemMock->expects($this->any())->method('getSku')->will(
+            $this->returnValue('Parent Item SKU')
+        );
+        $orderParentItemMock->expects($this->any())->method('getName')->will(
+            $this->returnValue('Parent Item Name')
         );
 
         $orderMock->expects($this->any())->method('getAllItems')->will(
