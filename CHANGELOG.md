@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased]
+### Added
+- PHPStan to development tools
+
 ## [103.1.2] - 2019-05-02
 ### Changed
 - Adopt latest Magento Coding Standards
