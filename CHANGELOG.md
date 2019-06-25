@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [103.1.3] - 2019-06-25
 ### Added
 - PHPStan to development tools
