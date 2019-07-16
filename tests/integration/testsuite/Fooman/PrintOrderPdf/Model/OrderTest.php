@@ -10,6 +10,9 @@
 namespace Fooman\PrintOrderPdf\Model;
 
 use Fooman\PhpunitBridge\BaseUnitTestCase;
+use Fooman\PrintOrderPdf\Model\Pdf\Order as PdfOrder;
+use Magento\Sales\Model\Order;
+use Magento\TestFramework\Helper\Bootstrap;
 
 /**
  * @magentoAppArea adminhtml
@@ -23,10 +26,8 @@ class OrderTest extends BaseUnitTestCase
 
     public function setUp()
     {
-        $this->objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
-        $this->pdf =  $this->objectManager->create(
-            \Fooman\PrintOrderPdf\Model\Pdf\Order::class
-        );
+        $this->objectManager = Bootstrap::getObjectManager();
+        $this->pdf =  $this->objectManager->create(PdfOrder::class);
     }
 
     /**
@@ -52,9 +53,7 @@ class OrderTest extends BaseUnitTestCase
      */
     protected function prepareOrder()
     {
-        $order = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            \Magento\Sales\Model\Order::class
-        )->loadByIncrementId('100000001');
+        $order = Bootstrap::getObjectManager()->create(Order::class)->loadByIncrementId('100000001');
 
         foreach ($order->getAllItems() as $orderItem) {
             if (!$orderItem->getSku()) {

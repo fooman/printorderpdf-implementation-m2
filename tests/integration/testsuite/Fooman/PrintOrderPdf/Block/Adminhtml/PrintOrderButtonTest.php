@@ -9,6 +9,9 @@
  */
 namespace Fooman\PrintOrderPdf\Block\Adminhtml;
 
+use Magento\Sales\Model\Order;
+use Magento\TestFramework\Helper\Bootstrap;
+
 /**
  * @magentoAppArea adminhtml
  */
@@ -22,13 +25,12 @@ class PrintOrderButtonTest extends \Magento\TestFramework\TestCase\AbstractBacke
     }
 
     /**
-     * @magentoDataFixture Fooman/PrintOrderPdf/Block/Adminhtml/_files/order.php
+     * @magentoDataFixture Magento/Sales/_files/order.php
+     * @magentoDataFixture prepareOrder
      */
     public function testPrintOrderButton()
     {
-        $orderId = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->create(
-            \Magento\Sales\Model\Order::class
-        )->loadByIncrementId('100000001')->getId();
+        $orderId = Bootstrap::getObjectManager()->create(Order::class)->loadByIncrementId('100000001')->getId();
         $this->dispatch('backend/sales/order/view/order_id/' . $orderId);
         $this->assertContains('<button id="fooman_print" title="Print"', $this->getResponse()->getBody());
     }
@@ -47,5 +49,20 @@ class PrintOrderButtonTest extends \Magento\TestFramework\TestCase\AbstractBacke
         $this->assertContains('"label":"Cancel"', $body);
         $this->assertContains('"label":"Print Shipping Labels"', $body);
         $this->assertContains('"type":"print_shipping_label"', $body);
+    }
+
+    public static function prepareOrder()
+    {
+        /** @var Order $order */
+        $order = Bootstrap::getObjectManager()->create(Order::class);
+        $order->loadByIncrementId('100000001');
+
+        $shippingAddress = clone $order->getBillingAddress();
+        $shippingAddress->setId(null)->setAddressType('shipping');
+        $shippingAddress->setShippingMethod('flatrate_flatrate');
+
+        $order->setShippingAddress($shippingAddress);
+        $order->setShippingMethod('flatrate_flatrate');
+        $order->save();
     }
 }
