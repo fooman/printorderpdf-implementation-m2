@@ -3,7 +3,7 @@
     "description": "Print the order as a pdf from the admin",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "103.1.4",
+    "version": "103.2.0",
     "autoload": {
         "psr-4": {
             "Fooman\\PrintOrderPdf\\": ""
