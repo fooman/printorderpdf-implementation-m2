@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [103.2.0] - 2019-10-03
 ### Added
 - Support for Php 7.3
 
