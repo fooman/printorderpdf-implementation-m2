@@ -22,7 +22,7 @@
         "phpunit/phpunit": "^6.2",
         "fooman/magento2-phpunit-bridge": "0.7.*",
         "captainhook/captainhook": "^4.2",
-        "magento/magento-coding-standard": "^2.0",
+        "magento/magento-coding-standard": "*",
         "fooman/phpstan-magento2-magic-methods": "^0.6.0"
     },
     "repositories": [
