@@ -28,7 +28,7 @@ class PaymentInfoBlockTest extends BaseUnitTestCase
 
     private $moduleManager;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->objectManager = Bootstrap::getObjectManager();
         $this->pdf = $this->objectManager->create(Order::class);

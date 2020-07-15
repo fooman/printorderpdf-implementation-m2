@@ -9,12 +9,13 @@
  */
 namespace Fooman\PrintOrderPdf\Controller\Adminhtml\Order;
 
+use Magento\TestFramework\TestCase\AbstractBackendController;
 /**
  * @magentoAppArea adminhtml
  */
-class PdfordersTest extends \Magento\TestFramework\TestCase\AbstractBackendController
+class PdfordersTest extends AbstractBackendController
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->resource = 'Magento_Sales::sales_order';
         $this->uri = 'backend/fooman_printorderpdf/order/pdforders';

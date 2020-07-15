@@ -9,15 +9,16 @@
  */
 namespace Fooman\PrintOrderPdf\Block\Adminhtml;
 
+use Magento\TestFramework\TestCase\AbstractBackendController;
 use Magento\Sales\Model\Order;
 use Magento\TestFramework\Helper\Bootstrap;
 
 /**
  * @magentoAppArea adminhtml
  */
-class PrintOrderButtonTest extends \Magento\TestFramework\TestCase\AbstractBackendController
+class PrintOrderButtonTest extends AbstractBackendController
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->resource = 'Magento_Sales::sales_order';
         $this->uri = 'backend/sales/order';

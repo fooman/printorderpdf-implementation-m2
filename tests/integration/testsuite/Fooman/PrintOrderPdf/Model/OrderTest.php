@@ -24,7 +24,7 @@ class OrderTest extends BaseUnitTestCase
 
     private $pdf;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->objectManager = Bootstrap::getObjectManager();
         $this->pdf =  $this->objectManager->create(PdfOrder::class);
