@@ -33,23 +33,26 @@ class PrintOrderButtonTest extends AbstractBackendController
     {
         $orderId = Bootstrap::getObjectManager()->create(Order::class)->loadByIncrementId('100000001')->getId();
         $this->dispatch('backend/sales/order/view/order_id/' . $orderId);
-        $this->assertContains('<button id="fooman_print" title="Print"', $this->getResponse()->getBody());
+        $this->assertStringContainsString('<button id="fooman_print" title="Print"', $this->getResponse()->getBody());
     }
 
     public function testPrintOrdersMassaction()
     {
         $this->dispatch('backend/sales/order');
-        $this->assertContains('"type":"fooman_pdforders","label":"Print Orders"', $this->getResponse()->getBody());
+        $this->assertStringContainsString(
+            '"type":"fooman_pdforders","label":"Print Orders"',
+            $this->getResponse()->getBody()
+        );
     }
 
     public function testStandardMassactionsShow()
     {
         $this->dispatch('backend/sales/order');
         $body = $this->getResponse()->getBody();
-        $this->assertContains('"type":"cancel"', $body);
-        $this->assertContains('"label":"Cancel"', $body);
-        $this->assertContains('"label":"Print Shipping Labels"', $body);
-        $this->assertContains('"type":"print_shipping_label"', $body);
+        $this->assertStringContainsString('"type":"cancel"', $body);
+        $this->assertStringContainsString('"label":"Cancel"', $body);
+        $this->assertStringContainsString('"label":"Print Shipping Labels"', $body);
+        $this->assertStringContainsString('"type":"print_shipping_label"', $body);
     }
 
     public static function prepareOrder()

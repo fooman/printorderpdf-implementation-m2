@@ -48,7 +48,7 @@ class PaymentInfoBlockTest extends BaseUnitTestCase
         if ($this->moduleManager->isEnabled('Fooman_PdfCustomiser')) {
             $paymentInfo->setFoomanThemePath('frontend/Magento/blank');
         }
-        $this->assertContains('Check / Money order', $paymentInfo->toPdf());
+        self::assertStringContainsString('Check / Money order', $paymentInfo->toPdf());
     }
 
     /**
@@ -62,7 +62,7 @@ class PaymentInfoBlockTest extends BaseUnitTestCase
         if ($this->moduleManager->isEnabled('Fooman_PdfCustomiser')) {
             $paymentInfo->setFoomanThemePath('frontend/Magento/blank');
         }
-        $this->assertContains('Check / Money order', $paymentInfo->toPdf());
+        self::assertStringContainsString('Check / Money order', $paymentInfo->toPdf());
     }
 
     /**
@@ -72,5 +72,4 @@ class PaymentInfoBlockTest extends BaseUnitTestCase
     {
         return Bootstrap::getObjectManager()->create(MagentoOrder::class)->loadByIncrementId('100000001');
     }
-
 }
