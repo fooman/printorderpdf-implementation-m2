@@ -9,7 +9,7 @@
  */
 namespace Fooman\PrintOrderPdf\Controller\Adminhtml\Order;
 
-use Magento\TestFramework\TestCase\AbstractBackendController;
+use Fooman\PhpunitBridge\AbstractBackendController;
 /**
  * @magentoAppArea adminhtml
  */

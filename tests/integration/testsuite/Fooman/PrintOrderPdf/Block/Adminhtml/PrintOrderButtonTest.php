@@ -9,7 +9,7 @@
  */
 namespace Fooman\PrintOrderPdf\Block\Adminhtml;
 
-use Magento\TestFramework\TestCase\AbstractBackendController;
+use Fooman\PhpunitBridge\AbstractBackendController;
 use Magento\Sales\Model\Order;
 use Magento\TestFramework\Helper\Bootstrap;
 
