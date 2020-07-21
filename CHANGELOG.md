@@ -1,6 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Compatibility with Magento 2.4, for Magento 2.1 and below use earlier versions
+### Added
+- Support for Php 7.4
 
 ## [103.2.0] - 2019-10-03
 ### Added
