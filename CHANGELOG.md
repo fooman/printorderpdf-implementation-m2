@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Updated copyright notice
 
 ## [104.0.0] - 2020-07-21
 ### Changed
