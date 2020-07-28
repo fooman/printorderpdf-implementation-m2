@@ -1,16 +1,16 @@
 <?php
+/**
+ * @copyright Copyright (c) 2015 Fooman Limited (http://www.fooman.co.nz)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Fooman\PrintOrderPdf\Controller\Adminhtml\Order;
 
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\App\Filesystem\DirectoryList;
 
-/**
- * @copyright  Copyright (c) 2015 Fooman Limited (http://www.fooman.co.nz)
- * @copyright  Copyright © 2015 Magento
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 class PrintAction extends \Magento\Backend\App\Action
 {
     const ADMIN_RESOURCE = 'Magento_Sales::sales_order';
