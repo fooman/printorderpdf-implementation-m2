@@ -13,8 +13,11 @@
             <group value="Fooman_PrintOrderPdf"/>
         </annotations>
         <before>
-            <actionGroup ref="AdminLoginActionGroup" stepKey="AdminLoginActionGroup"/>
+            <actionGroup ref="AdminLoginActionGroup" stepKey="loginToAdminArea"/>
         </before>
+        <after>
+            <actionGroup ref="AdminLogoutActionGroup" stepKey="logoutFromAdminArea"/>
+        </after>
         <amOnPage url="{{AdminOrdersPage.url}}" stepKey="onOrdersPage"/>
         <waitForPageLoad stepKey="waitForIndexPageLoad"/>
         <click selector="{{AdminOrdersGridSection.bulkActionDropdown}}" stepKey="clickDropdown"/>
