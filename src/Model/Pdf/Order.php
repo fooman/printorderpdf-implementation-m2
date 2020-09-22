@@ -31,8 +31,16 @@ class Order extends Invoice
 
         foreach ($orders as $order) {
             if ($order->getStoreId()) {
-                $this->_localeResolver->emulate($order->getStoreId());
-                $this->_storeManager->setCurrentStore($order->getStoreId());
+                if (isset($this->appEmulation)) {
+                    $this->appEmulation->startEnvironmentEmulation(
+                        $order->getStoreId(),
+                        \Magento\Framework\App\Area::AREA_FRONTEND,
+                        true
+                    );
+                } else {
+                    $this->_localeResolver->emulate($order->getStoreId());
+                    $this->_storeManager->setCurrentStore($order->getStoreId());
+                }
             }
             $page = $this->newPage();
             $this->_setFontBold($page, 10);
@@ -70,7 +78,11 @@ class Order extends Invoice
             /* Add totals */
             $this->insertTotals($page, $order);
             if ($order->getStoreId()) {
-                $this->_localeResolver->revert();
+                if (isset($this->appEmulation)) {
+                    $this->appEmulation->stopEnvironmentEmulation();
+                } else {
+                    $this->_localeResolver->revert();
+                }
             }
         }
         $this->_afterGetPdf();
