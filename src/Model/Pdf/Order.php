@@ -8,10 +8,49 @@
 
 namespace Fooman\PrintOrderPdf\Model\Pdf;
 
+use Magento\Sales\Model\Order\Pdf\Config;
 use Magento\Sales\Model\Order\Pdf\Invoice;
 
 class Order extends Invoice
 {
+    /**
+     * @var \Magento\Store\Model\App\Emulation
+     */
+    private $appEmulation;
+
+    public function __construct(
+        \Magento\Payment\Helper\Data $paymentData,
+        \Magento\Framework\Stdlib\StringUtils $string,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        \Magento\Framework\Filesystem $filesystem,
+        Config $pdfConfig,
+        Total\Factory $pdfTotalFactory,
+        ItemsFactory $pdfItemsFactory,
+        \Magento\Framework\Stdlib\DateTime\TimezoneInterface $localeDate,
+        \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
+        \Magento\Sales\Model\Order\Address\Renderer $addressRenderer,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Store\Model\App\Emulation $appEmulation,
+        array $data = []
+    ) {
+        $this->appEmulation = $appEmulation;
+        parent::__construct(
+            $paymentData,
+            $string,
+            $scopeConfig,
+            $filesystem,
+            $pdfConfig,
+            $pdfTotalFactory,
+            $pdfItemsFactory,
+            $localeDate,
+            $inlineTranslation,
+            $addressRenderer,
+            $storeManager,
+            $appEmulation,
+            $data
+        );
+    }
+
     /**
      * Return PDF document
      *
@@ -31,16 +70,11 @@ class Order extends Invoice
 
         foreach ($orders as $order) {
             if ($order->getStoreId()) {
-                if (isset($this->appEmulation)) {
-                    $this->appEmulation->startEnvironmentEmulation(
-                        $order->getStoreId(),
-                        \Magento\Framework\App\Area::AREA_FRONTEND,
-                        true
-                    );
-                } else {
-                    $this->_localeResolver->emulate($order->getStoreId());
-                    $this->_storeManager->setCurrentStore($order->getStoreId());
-                }
+                $this->appEmulation->startEnvironmentEmulation(
+                    $order->getStoreId(),
+                    \Magento\Framework\App\Area::AREA_FRONTEND,
+                    true
+                );
             }
             $page = $this->newPage();
             $this->_setFontBold($page, 10);
@@ -78,11 +112,7 @@ class Order extends Invoice
             /* Add totals */
             $this->insertTotals($page, $order);
             if ($order->getStoreId()) {
-                if (isset($this->appEmulation)) {
-                    $this->appEmulation->stopEnvironmentEmulation();
-                } else {
-                    $this->_localeResolver->revert();
-                }
+                $this->appEmulation->stopEnvironmentEmulation();
             }
         }
         $this->_afterGetPdf();

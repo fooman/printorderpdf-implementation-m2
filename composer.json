@@ -3,7 +3,7 @@
     "description": "Print the order as a pdf from the admin",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "104.0.2",
+    "version": "105.0.0",
     "autoload": {
         "psr-4": {
             "Fooman\\PrintOrderPdf\\": "src/"
@@ -19,17 +19,13 @@
         }
     },
     "require": {
-        "php": "7.0.2 | 7.0.4 | ~7.0.6 | ~7.1.0| ~7.2.0 | ~7.3.0 | ~7.4.0",
-        "magento/framework": "^101.0.0 | ^102.0.0 | ^103.0.0",
-        "magento/module-backend": "^100.2.0 | ^101.0.0 | ^102.0.0",
-        "magento/module-sales": "^101.0.0 | ^102.0.0 | ^103.0.0"
+        "php": "~7.3.0 | ~7.4.0",
+        "magento/framework": "^103.0.1",
+        "magento/module-backend": "^102.0.1",
+        "magento/module-sales": "^103.0.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.2 | ^9.1",
-        "fooman/magento2-phpunit-bridge": "^0.9",
-        "captainhook/captainhook": "^4.2",
-        "magento/magento-coding-standard": "*",
-        "fooman/phpstan-magento2-magic-methods": "^0.6.0"
+        "fooman/testing-and-quality-tools": "^1.0"
     },
     "repositories": [
         {
