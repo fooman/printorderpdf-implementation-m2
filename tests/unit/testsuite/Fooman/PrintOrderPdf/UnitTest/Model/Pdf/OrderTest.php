@@ -4,12 +4,12 @@ namespace Fooman\PrintOrderPdf\UnitTest\Model\Pdf;
 
 use Fooman\PhpunitBridge\BaseUnitTestCase;
 use Fooman\PrintOrderPdf\Model\Pdf\Order;
+use Magento\Store\Model\App\Emulation;
 use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
 use Magento\Framework\Translate\Inline\StateInterface;
-use Magento\Framework\Locale\ResolverInterface;
 use Magento\Sales\Model\Order\Pdf\Total\Factory;
 use Magento\Sales\Model\Order\Pdf\Total\DefaultTotal;
 use Magento\Sales\Model\Order\Pdf\ItemsFactory;
@@ -55,7 +55,13 @@ class OrderTest extends BaseUnitTestCase
         $scopeConfigMock = $this->createMock(ScopeConfigInterface::class);
         $localeDataMock = $this->createMock(TimezoneInterface::class);
         $inlineTranslationMock = $this->createMock(StateInterface::class);
-        $localeResolverMock = $this->createMock(ResolverInterface::class);
+        $appEmulationMock = $this->createPartialMock(
+            Emulation::class,
+            ['startEnvironmentEmulation', 'stopEnvironmentEmulation']
+        );
+
+        $appEmulationMock->expects($this->once())->method('startEnvironmentEmulation')->willReturnSelf();
+        $appEmulationMock->expects($this->once())->method('stopEnvironmentEmulation')->willReturnSelf();
 
         $paymentDataMock = $this->getPaymentDataMock();
 
@@ -87,7 +93,7 @@ class OrderTest extends BaseUnitTestCase
             'localeDate'        => $localeDataMock,
             'inlineTranslation' => $inlineTranslationMock,
             'storeManager'      => $storeManagerMock,
-            'localeResolver'    => $localeResolverMock,
+            'appEmulation'      => $appEmulationMock,
             []
         ];
 
