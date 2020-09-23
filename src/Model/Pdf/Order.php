@@ -8,7 +8,6 @@
 
 namespace Fooman\PrintOrderPdf\Model\Pdf;
 
-use Magento\Sales\Model\Order\Pdf\Config;
 use Magento\Sales\Model\Order\Pdf\Invoice;
 
 class Order extends Invoice
