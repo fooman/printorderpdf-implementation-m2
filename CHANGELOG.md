@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [105.0.0] - 2020-09-24
 ### Changed
 - Compatibility with Magento 2.4.1, for Magento 2.4.0 and below use earlier versions
