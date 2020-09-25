@@ -73,9 +73,10 @@ class PrintAction extends \Magento\Backend\App\Action
             if ($order->getEntityId()) {
                 $pdf = $this->orderPdfFactory->create()->getPdf([$order]);
                 $date = $this->date->date('Y-m-d_H-i-s');
+                $fileContent = ['type' => 'string', 'value' => $pdf->render(), 'rm' => true];
                 return $this->fileFactory->create(
                     __('order') . '_' . $date . '.pdf',
-                    $pdf->render(),
+                    $fileContent,
                     DirectoryList::VAR_DIR,
                     'application/pdf'
                 );

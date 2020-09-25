@@ -82,9 +82,10 @@ class Pdforders extends \Magento\Backend\App\Action
             $collection = $this->filter->getCollection($this->collectionFactory->create());
             $pdf = $this->orderPdfFactory->create()->getPdf($collection);
             $date = $this->date->date('Y-m-d_H-i-s');
+            $fileContent = ['type' => 'string', 'value' => $pdf->render(), 'rm' => true];
             return $this->fileFactory->create(
                 __('orders') . $date . '.pdf',
-                $pdf->render(),
+                $fileContent,
                 DirectoryList::VAR_DIR,
                 'application/pdf'
             );

@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Don't keep temporary files in var folder
 
 ## [105.0.0] - 2020-09-24
 ### Changed
