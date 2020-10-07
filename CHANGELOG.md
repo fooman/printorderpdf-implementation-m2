@@ -1,4 +1,6 @@
 # Change Log
+### Added
+- Compatibility with Magento 2.3.6
 
 ## [105.0.1] - 2020-09-25
 ### Changed
