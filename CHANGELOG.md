@@ -1,4 +1,6 @@
 # Change Log
+## [Unreleased]
+
 ## [105.0.2] - 2020-10-07
 ### Added
 - Compatibility with Magento 2.3.6
