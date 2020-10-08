@@ -1,1 +1,1 @@
-composer require fooman/testing-and-quality-tools --no-update
+composer require fooman/magento2-phpunit-bridge --no-update
