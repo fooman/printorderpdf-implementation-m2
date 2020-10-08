@@ -30,3 +30,4 @@ jobs:
           module_name: Fooman_PrintOrderPdf
           composer_name: fooman/printorderpdf-implementation-m2
           ce_version: '2.4.0'
+          magento_pre_install_script: './github/require-dev-install.sh'
