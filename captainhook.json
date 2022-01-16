@@ -16,11 +16,6 @@
                 "conditions": []
             },
             {
-                "action": "vendor/bin/phpunit",
-                "options": [],
-                "conditions": []
-            },
-            {
                 "action": "vendor/bin/phpcs --standard=psr2 src",
                 "options": [],
                 "conditions": []
