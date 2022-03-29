@@ -1,4 +1,6 @@
 # Change Log
+## [Unreleased]
+
 ## [105.1.1] - 2022-03-29
 ### Added
 - pt_BR translation thanks to Vitor Martins
