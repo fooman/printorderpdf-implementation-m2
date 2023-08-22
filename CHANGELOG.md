@@ -1,4 +1,8 @@
 # Change Log
+## [105.2.0] - 2023-02-08
+### Added
+- Support for Php 8.2
+
 ## [105.1.1] - 2022-03-29
 ### Added
 - pt_BR translation thanks to Vitor Martins
