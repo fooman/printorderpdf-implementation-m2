@@ -13,7 +13,7 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 
 class PrintAction extends \Magento\Backend\App\Action
 {
-    const ADMIN_RESOURCE = 'Magento_Sales::sales_order';
+    public const ADMIN_RESOURCE = 'Magento_Sales::sales_order';
 
     /**
      * @var \Magento\Framework\App\Response\Http\FileFactory
