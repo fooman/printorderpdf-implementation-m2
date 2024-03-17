@@ -1,5 +1,9 @@
 # Change Log
 ## [Unreleased]
+### Added
+- Support for Php 8.3
+### Changed
+- Code style updates for newer Magento Coding Standard
 
 ## [105.2.0] - 2023-02-08
 ### Added
