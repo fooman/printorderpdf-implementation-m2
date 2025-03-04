@@ -10,14 +10,14 @@
 
 namespace Fooman\PrintOrderPdf\Block;
 
-use Fooman\PhpunitBridge\BaseUnitTestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 use Fooman\PrintOrderPdf\Model\Pdf\Order;
 use Magento\Framework\Module\Manager;
 use Magento\Payment\Helper\Data;
 use Magento\Sales\Model\Order as MagentoOrder;
 use Magento\TestFramework\Helper\Bootstrap;
 
-class PaymentInfoBlockTest extends BaseUnitTestCase
+class PaymentInfoBlockTest extends TestCase
 {
 
     private $objectManager;

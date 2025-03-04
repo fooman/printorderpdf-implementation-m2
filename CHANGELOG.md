@@ -1,5 +1,8 @@
 # Change Log
 ## [Unreleased]
+### Added
+- Support for Php 8.4
+- - Compatibility with Magento 2.4.8
 
 ## [105.3.0] - 2024-03-18
 ### Added
