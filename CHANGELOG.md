@@ -1,5 +1,9 @@
 # Change Log
 
+## [104.0.2] - 2025-05-30
+### Changed
+- Backport integration test changes
+
 ## [104.0.1] - 2020-07-28
 ### Changed
 - Updated copyright notice

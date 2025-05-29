@@ -9,7 +9,7 @@
  */
 namespace Fooman\PrintOrderPdf\Model;
 
-use Fooman\PhpunitBridge\BaseUnitTestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 use Fooman\PrintOrderPdf\Model\Pdf\Order as PdfOrder;
 use Magento\Sales\Model\Order;
 use Magento\TestFramework\Helper\Bootstrap;
@@ -17,7 +17,7 @@ use Magento\TestFramework\Helper\Bootstrap;
 /**
  * @magentoAppArea adminhtml
  */
-class OrderTest extends BaseUnitTestCase
+class OrderTest extends TestCase
 {
 
     private $objectManager;
@@ -53,7 +53,7 @@ class OrderTest extends BaseUnitTestCase
      */
     protected function prepareOrder()
     {
-        $order = Bootstrap::getObjectManager()->create(Order::class)->loadByIncrementId('100000001');
+        $order = $this->objectManager->create(Order::class)->loadByIncrementId('100000001');
 
         foreach ($order->getAllItems() as $orderItem) {
             if (!$orderItem->getSku()) {
