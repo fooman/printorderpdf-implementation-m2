@@ -1,5 +1,5 @@
 # Change Log
-## [Unreleased]
+## [105.5.0] - 2026-04-22
 ### Added
 - Support for Php 8.5
 - Compatibility with Magento 2.4.9
