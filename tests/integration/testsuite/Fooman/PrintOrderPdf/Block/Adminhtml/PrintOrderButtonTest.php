@@ -11,6 +11,7 @@ namespace Fooman\PrintOrderPdf\Block\Adminhtml;
 
 use Magento\TestFramework\TestCase\AbstractBackendController;
 use Magento\Sales\Model\Order;
+use Magento\Sales\Model\ResourceModel\Order as OrderResource;
 use Magento\TestFramework\Helper\Bootstrap;
 
 /**
@@ -18,8 +19,6 @@ use Magento\TestFramework\Helper\Bootstrap;
  */
 class PrintOrderButtonTest extends AbstractBackendController
 {
-    use \Yoast\PHPUnitPolyfills\Polyfills\AssertStringContains;
-
     public function setUp(): void
     {
         $this->resource = 'Magento_Sales::sales_order';
@@ -69,6 +68,6 @@ class PrintOrderButtonTest extends AbstractBackendController
 
         $order->setShippingAddress($shippingAddress);
         $order->setShippingMethod('flatrate_flatrate');
-        $order->save();
+        Bootstrap::getObjectManager()->get(OrderResource::class)->save($order);
     }
 }

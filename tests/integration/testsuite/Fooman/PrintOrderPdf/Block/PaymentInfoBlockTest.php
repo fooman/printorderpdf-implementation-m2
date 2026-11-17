@@ -10,7 +10,7 @@
 
 namespace Fooman\PrintOrderPdf\Block;
 
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 use Fooman\PrintOrderPdf\Model\Pdf\Order;
 use Magento\Framework\Module\Manager;
 use Magento\Payment\Helper\Data;

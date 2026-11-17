@@ -9,7 +9,7 @@
  */
 namespace Fooman\PrintOrderPdf\Model;
 
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 use Fooman\PrintOrderPdf\Model\Pdf\Order as PdfOrder;
 use Magento\Sales\Model\Order;
 use Magento\TestFramework\Helper\Bootstrap;
