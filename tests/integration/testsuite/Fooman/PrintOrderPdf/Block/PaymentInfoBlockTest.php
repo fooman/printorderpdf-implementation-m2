@@ -10,7 +10,7 @@
 
 namespace Fooman\PrintOrderPdf\Block;
 
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 use Fooman\PrintOrderPdf\Model\Pdf\Order;
 use Magento\Framework\Module\Manager;
 use Magento\Payment\Helper\Data;
@@ -20,12 +20,24 @@ use Magento\TestFramework\Helper\Bootstrap;
 class PaymentInfoBlockTest extends TestCase
 {
 
+    /**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
     private $objectManager;
 
+    /**
+     * @var Data
+     */
     private $helper;
 
+    /**
+     * @var Order
+     */
     private $pdf;
 
+    /**
+     * @var Manager
+     */
     private $moduleManager;
 
     public function setUp(): void
