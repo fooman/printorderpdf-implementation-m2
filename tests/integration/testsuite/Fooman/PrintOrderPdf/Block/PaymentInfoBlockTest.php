@@ -20,12 +20,24 @@ use Magento\TestFramework\Helper\Bootstrap;
 class PaymentInfoBlockTest extends TestCase
 {
 
+    /**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
     private $objectManager;
 
+    /**
+     * @var Data
+     */
     private $helper;
 
+    /**
+     * @var Order
+     */
     private $pdf;
 
+    /**
+     * @var Manager
+     */
     private $moduleManager;
 
     public function setUp(): void

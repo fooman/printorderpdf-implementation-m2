@@ -20,8 +20,14 @@ use Magento\TestFramework\Helper\Bootstrap;
 class OrderTest extends TestCase
 {
 
+    /**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
     private $objectManager;
 
+    /**
+     * @var PdfOrder
+     */
     private $pdf;
 
     public function setUp(): void
